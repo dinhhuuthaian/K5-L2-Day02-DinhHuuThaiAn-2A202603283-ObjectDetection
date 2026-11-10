@@ -4,11 +4,11 @@
 
 ## 1. Thông tin học viên
 
-- Họ tên:
-- MSSV:
-- Email:
-- Lớp:
-- Link repo bài làm:
+- Họ tên: Đinh Hữu Thái An 
+- MSSV: 2A202603283
+- Email: dinhhuuthaian9191@gmail.com
+- Lớp: AI.20K E403
+- Link repo bài làm: https://github.com/dinhhuuthaian/K5-L2-Day02-DinhHuuThaiAn-2A202603283-ObjectDetection
 - Link Colab đã chạy:
 
 ## 2. Schema và mini guideline
@@ -27,16 +27,23 @@ Dẫn tới [GUIDELINE_MINI.md](../../GUIDELINE_MINI.md). Tóm tắt ba ca mơ h
 
 | Chỉ số | Trước sửa | Sau sửa nếu có |
 |---|---:|---:|
-| TP | | |
-| FP | | |
-| FN | | |
-| Precision | | |
-| Recall | | |
-| F1 | | |
-| mean_iou_of_matches | | |
-| passed | | |
+| TP | 454 | |
+| FP | 625 | |
+| FN | 199 | |
+| Precision | 0.4208 | |
+| Recall |  0.6953 | |
+| F1 | 0.5242 | |
+| mean_iou_of_matches |  0.8022 | |
+| passed | false (Chưa đạt ngưỡng yêu cầu) | |
 
-Dẫn tới `outputs/annotation_evaluation.json` trong repo. Nếu rework, ghi ảnh, lỗi đã kiểm, quyết định sửa/giữ và lý do. Không suy nguyên nhân chỉ từ FP/FN. Không có rework thì ghi rõ.
+Nhận xét:
+
+TP = 454 cho thấy đa số đối tượng trong bộ dữ liệu đã được gán nhãn.
+FP = 625 còn khá cao, nguyên nhân có thể do gán nhãn dư hoặc nhãn chưa thống nhất với gold set.
+FN = 199 cho thấy vẫn còn một số đối tượng bị bỏ sót.
+Mean IoU = 0.8022 đạt ngưỡng yêu cầu, chứng tỏ các bounding box khớp thường có độ chính xác vị trí tốt.
+F1 = 0.5242 thấp hơn ngưỡng yêu cầu 0.8 nên chưa đạt tiêu chí chất lượng annotation.
+Em coi hình trong gold train em thấy xe bus mà nó để là xe van em k biết đó có phải là lí do của em không đạt không ạ
 
 ## 5. Kết quả YOLO
 
@@ -69,7 +76,14 @@ Trả lời bốn câu hỏi cuối notebook:
 ## 7. Tự đánh giá theo rubric
 
 Đối chiếu [RUBRIC.md](../../RUBRIC.md): phần nào đã có kết quả, phần nào còn thiếu hoặc chưa kiểm được. Không tự nhận hoàn thành bước chưa chạy.
-
+Hoàn thành gán nhãn 50 ảnh train.
+Hoàn thành cấu trúc dataset theo định dạng YOLO.
+Hoàn thành kiểm tra bằng check_yolo_labels.py.
+Đã chạy evaluate_annotations.py và nhận kết quả đánh giá.
+Chưa thực hiện huấn luyện YOLOv11/YOLOv8 trên Colab.
+Chưa có kết quả mAP50 và mAP50-95 của mô hình.
 ## 8. Công cụ AI và tài liệu tham khảo
 
 Ghi công cụ đã dùng, dùng ở bước nào và phần đã tự kiểm tra; không dùng thì ghi rõ. Liệt kê nguồn ngoài repo được sử dụng. Không ghi mật khẩu/token hoặc đính kèm gold train.
+Microsoft Copilot: hỗ trợ giải thích các chỉ số Precision, Recall, F1, TP, FP, FN và rà soát nội dung báo cáo.
+ChatGPT: hỗ trợ giải thích quy trình Object Detection và định dạng báo cáo Markdown.
